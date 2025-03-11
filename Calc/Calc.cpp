@@ -1,20 +1,61 @@
-﻿// Calc.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
+﻿#include <iostream>
 
-#include <iostream>
+// 연산식
+double add(double num1, double num2) { return num1 + num2; }
+double sub(double num1, double num2) { return num1 - num2; }
+double multi(double num1, double num2) { return num1 * num2; }
+double div(double num1, double num2) { if (num2 == 0) { std::cout << "0으로 나눌 수 없습니다." << std::endl; return 0; } return num1 / num2; }
 
-int main()
+// 프로그램 실행 시작점
+int main() 
 {
-    std::cout << "Hello World!\n";
+	while (true) {
+
+		double num1, num2;
+
+		// 메뉴바 출력
+		std::cout << "<계산기>" << std::endl; // 줄바꿈
+		std::cout << "1. 덧셈" << std::endl;
+		std::cout << "2. 뺄셈" << std::endl;
+		std::cout << "3. 곱셈" << std::endl;
+		std::cout << "4. 나눗셈" << std::endl;
+		std::cout << "5. 종료" << std::endl;
+		std::cout << "메뉴를 선택하세요. (1/2/3/4/5) -> ";
+
+		// 메뉴바 입력값
+		int choice;
+		std::cin >> choice;
+
+		// 5 누를시 프로그램 종료
+		if (choice == 5) {
+			std::cout << "종료됩니다." << std::endl;
+			break;
+		}
+
+		// 연산할 숫자 입력
+		std::cout << "숫자 입력 : ";
+		std::cin >> num1;
+		std::cout << "숫자 입력 : ";
+		std::cin >> num2;
+
+		// 연산 선택
+		if (choice == 1) {
+			std::cout << "출력 : " << add(num1, num2) << std::endl;
+		}
+		else if (choice == 2) {
+			std::cout << "출력 : " << sub(num1, num2) << std::endl;
+		}
+		else if (choice == 3) {
+			std::cout << "출력 : " << multi(num1, num2) << std::endl;
+		}
+		else if (choice == 4) {
+			std::cout << "출력 : " << div(num1, num2) << std::endl;
+		}
+		else {
+			std::cout << "잘못 입력하였습니다. 다시 시도해주세요." << std::endl;
+		}
+	}
+	// 프로그램 종료
+	return 0;
 }
 
-// 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
-// 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
-
-// 시작을 위한 팁: 
-//   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
-//   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
-//   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
-//   4. [오류 목록] 창을 사용하여 오류를 봅니다.
-//   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
-//   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
